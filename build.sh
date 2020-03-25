@@ -7,4 +7,5 @@ npm run build
 echo '开始打包'
 rm -rf ../../public/manage
 mv manage ../../public
-echo '打包完成 见项目移至client目录'
+rm -rf ./manage
+echo '打包完成 见项目移至public目录'
