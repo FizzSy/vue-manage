@@ -2,7 +2,7 @@ const path = require("path");
 const debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  publicPath: "/manage/",
+  publicPath: process.env.development === "production" ? "/manage/" : "",
   outputDir: "manage", // 构建输出目录
   assetsDir: "assets", // 静态资源目录 (js, css, img, fonts)
   lintOnSave: false, // 是否开启eslint保存检测，有效值：ture | false | 'error'
@@ -50,11 +50,15 @@ module.exports = {
     hotOnly: false,
     proxy: {
       // 配置跨域
-      "/user": {
-        target: "http://kaneki.com.cn:1002",
-        changOrigin: true
-      },
-      "/profile": {
+      //   "/user": {
+      //     target: "http://kaneki.com.cn:1002",
+      //     changOrigin: true
+      //   },
+      //   "/profile": {
+      //     target: "http://kaneki.com.cn:1002",
+      //     changOrigin: true
+      //   }
+      "/manage": {
         target: "http://kaneki.com.cn:1002",
         changOrigin: true
       }
